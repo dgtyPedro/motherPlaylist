@@ -75,9 +75,11 @@
             style="color:#CC2E2D;">here</a> instead.</div>
       </div>
     <form method="post" action="action" style="margin-inline: 10%; margin-top: 100px;">
-        <input type="text" name="motherlink" placeholder="Mother Playlist Link"><br/>
-        <input type="text" placeholder="Number of Songs for the Child"><br/>
-        <input type="text" placeholder="Child Playlist Link"><br/>
+        <input type="hidden" value="<?=$_GET['code']?>" name="code" required>
+        <input type="hidden" value="<?=$refreshToken?>" name="refresh" required>
+        <input type="text" name="motherlink" placeholder="Mother Playlist Link" required><br/>
+        <input type="text" name="number" placeholder="Number of Songs for the Child" required><br/>
+        <input type="text" name="childlink" placeholder="Child Playlist Link" required><br/>
         <div class="lastrow" style="color: #FFE100;"> <button type="submit">Give Birth</button> You MUST own both playlists.</div>
     </form>
 </body>
