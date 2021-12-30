@@ -74,7 +74,7 @@
         <div class="buggy">Wants to reload the page?<br/> Do not click f5, click <a href="http://localhost/motherPlaylist/" 
             style="color:#CC2E2D;">here</a> instead.</div>
       </div>
-    <form method="post" action="action" style="margin-inline: 10%; margin-top: 100px;">
+    <form method="post" action="child" style="margin-inline: 10%; margin-top: 100px;">
         <input type="hidden" value="<?=$_GET['code']?>" name="code" required>
         <input type="hidden" value="<?=$refreshToken?>" name="refresh" required>
         <input type="text" name="motherlink" placeholder="Mother Playlist Link" required><br/>
