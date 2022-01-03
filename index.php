@@ -16,18 +16,24 @@ $options = [
 		'playlist-read-private',
 		'playlist-read-collaborative',
     ],
-	'show_dialog' => true
+	// 'show_dialog' => true
 ];
 
 
 $api = new SpotifyWebAPI\SpotifyWebAPI();
 if (isset($_GET['code'])) {
-    $session->requestAccessToken($_GET['code']);
-    $refreshToken = $session->getRefreshToken();
-    $api->setAccessToken($session->getAccessToken());
-    include ('html/home.php');
+    
+    try{
+        $session->requestAccessToken($_GET['code']);
+        $refreshToken = $session->getRefreshToken();
+        $api->setAccessToken($session->getAccessToken());
+        include ('html/home.php');
+    }catch (exception $e){
+        header('Location: ' . $session->getAuthorizeUrl($options));
+        die();
+    }
+    
 } else {
-
     header('Location: ' . $session->getAuthorizeUrl($options));
     die();
 }

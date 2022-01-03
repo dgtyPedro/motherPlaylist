@@ -64,21 +64,23 @@
         font-size: 30px;
         color: #7E1E29;
     }
+    a{
+        text-decoration: none;
+        color: #FFE100;
+    }
 
 </style>
 <script src="https://kit.fontawesome.com/b0c45caebd.js" crossorigin="anonymous"></script>
 <body >
     <div class="container">
-        <div class="logoicon"><i class="fab fa-spotify"></i> Mother Playlist <i class="fas fa-fighter-jet"></i></div>
+    <div class="logoicon"><a href="<?=$BASE_URL?>"><i class="fab fa-spotify"></i> Mother Playlist <i class="fas fa-fighter-jet"></i></a></div>
         
-        <div class="buggy">Wants to reload the page?<br/> Do not click f5, click <a href="http://localhost/motherPlaylist/" 
-            style="color:#CC2E2D;">here</a> instead.</div>
       </div>
     <form method="post" action="child" style="margin-inline: 10%; margin-top: 100px;">
         <input type="hidden" value="<?=$_GET['code']?>" name="code" required>
         <input type="hidden" value="<?=$refreshToken?>" name="refresh" required>
         <input type="text" name="motherlink" placeholder="Mother Playlist Link" required><br/>
-        <input type="text" name="number" placeholder="Number of Songs for the Child" required><br/>
+        <input type="text" name="number" placeholder="Number of Songs for the Child (max. 100)" required><br/>
         <input type="text" name="childlink" placeholder="Child Playlist Link" required><br/>
         <div class="lastrow" style="color: #FFE100;"> <button type="submit">Give Birth</button> You MUST own both playlists.</div>
     </form>

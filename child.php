@@ -24,21 +24,31 @@ if (isset($_POST['code'])) {
     $motherlink = $_POST['motherlink'];
     $childlink = $_POST['childlink'];
     $number = $_POST['number'];
+    if ($number>100){
+        $number=100;
+    }
 
     $ml = substr(substr($motherlink, 34),0, -20);
     $cl = substr(substr($childlink, 34),0, -20);
     $n = $number;
 
-        $playlistTracks = $api->getPlaylistTracks($ml);
-        $musics = array( );
+    $x = 0;
+    $y = 0;
+    $musics = array( );
 
+    while($x<=10){
+        $playlistTracks = $api->getPlaylistTracks($ml, ['offset' => $x*100]);
         foreach ($playlistTracks->items as $track) {
             $track = $track->track;
             $musics[$track->id] = $track->id;
         } 
+        $x+=1;
+    }
+
         $random = array_rand($musics, $n);
         $api->replacePlaylistTracks($cl, $random);
 
+        $mom = $api->getPlaylist($ml);
         $birthedChild = $api->getPlaylist($cl);
 
         $birthedChildImage = $api->getPlaylistImage($cl);

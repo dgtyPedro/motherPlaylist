@@ -110,10 +110,9 @@
 <script src="https://kit.fontawesome.com/b0c45caebd.js" crossorigin="anonymous"></script>
 <body >
     <div class="container">
-        <div class="logoicon"><a href="http://localhost/motherPlaylist"><i class="fab fa-spotify"></i> Mother Playlist <i class="fas fa-fighter-jet"></i></a></div>
+        <div class="logoicon"><a href="<?=$BASE_URL?>"><i class="fab fa-spotify"></i> Mother Playlist <i class="fas fa-fighter-jet"></i></a></div>
         
-        <div class="buggy">Wants to reload the page?<br/> Do not click f5, click <a href="http://localhost/motherPlaylist/" 
-            style="color:#CC2E2D;">here</a> instead.</div>
+
     </div>
 
     <div class="container2">
